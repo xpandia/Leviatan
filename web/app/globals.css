@@ -1,0 +1,53 @@
+:root {
+  /* paleta Leviatán — periodo Ive */
+  --white-infinite: #ffffff;
+  --offwhite-vela: #fafaf7;
+  --aluminum-100: #e8e8e8;
+  --aluminum-700: #3a3a3c;
+  --carbon: #1d1d1f;
+  --bondi-blue: #0095b6;
+
+  /* tipografía via next/font */
+  --font-display: var(--font-display, "EB Garamond", Georgia, serif);
+  --font-body: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+
+  /* easing */
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--white-infinite);
+  color: var(--carbon);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--bondi-blue);
+  color: var(--white-infinite);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
