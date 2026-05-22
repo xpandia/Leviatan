@@ -1,11 +1,12 @@
 :root {
-  /* paleta Leviatán — periodo Ive */
-  --white-infinite: #ffffff;
-  --offwhite-vela: #fafaf7;
-  --aluminum-100: #e8e8e8;
-  --aluminum-700: #3a3a3c;
-  --carbon: #1d1d1f;
-  --bondi-blue: #0095b6;
+  /* paleta Leviatán — libro Hobbes 1651 + Ive */
+  --paper: #f4eedf;          /* papel crema, tinta envejecida */
+  --paper-deep: #ebe3d0;     /* papel sombra, divisores */
+  --ink: #1a1a1a;            /* tinta negra cálida */
+  --ink-soft: #4a3f2f;       /* tinta secundaria (sepia) */
+  --ink-faint: #8a7e6a;      /* marginalia, captions */
+  --bondi-blue: #0095b6;     /* acento Aqua / agua del Leviatán */
+  --ink-blue: #1b3a5c;       /* azul tinta clásico, ornamentos */
 
   /* tipografía via next/font */
   --font-display: var(--font-display, "EB Garamond", Georgia, serif);
@@ -23,19 +24,28 @@
 
 html,
 body {
-  background: var(--white-infinite);
-  color: var(--carbon);
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.5;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+
+/* sutil textura de papel — gradient muy bajo */
+body {
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 20% 10%, rgba(255, 255, 255, 0.4), transparent 60%),
+    radial-gradient(ellipse 1000px 700px at 80% 90%, rgba(180, 165, 130, 0.08), transparent 70%);
+  background-attachment: fixed;
 }
 
 ::selection {
-  background: var(--bondi-blue);
-  color: var(--white-infinite);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 a {

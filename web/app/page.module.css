@@ -1,97 +1,279 @@
-.page {
+/* ========== layout general ========== */
+
+.book {
   min-height: 100dvh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 32px 48px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 640px) {
-  .page {
-    padding: 24px 24px;
-  }
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 96px;
-}
-
-.nav {
-  display: flex;
-  gap: 32px;
-  font-size: 14px;
-  color: var(--aluminum-700);
-}
-
-@media (max-width: 640px) {
-  .nav {
-    display: none;
-  }
-}
-
-.main {
-  display: grid;
-  align-content: center;
-  gap: 48px;
   max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 48px 80px;
+  display: flex;
+  flex-direction: column;
 }
 
-.eyebrow {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--aluminum-700);
+@media (max-width: 640px) {
+  .book {
+    padding: 40px 28px 56px;
+  }
 }
 
-.headline {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(48px, 8vw, 88px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--carbon);
-}
+/* ========== header (folio superior) ========== */
 
-.headline em {
-  font-style: italic;
-  color: var(--bondi-blue);
-}
-
-.sub {
-  font-size: 19px;
-  line-height: 1.55;
-  color: var(--aluminum-700);
-  max-width: 560px;
-}
-
-.cite {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 17px;
-  color: var(--aluminum-700);
-  border-left: 1px solid var(--aluminum-100);
-  padding-left: 16px;
-  max-width: 480px;
-}
-
-.footer {
-  padding-top: 96px;
+.folio {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-size: 13px;
-  color: var(--aluminum-700);
+  padding-bottom: 96px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
 }
 
-@media (max-width: 640px) {
-  .footer {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
+.folio .imprint {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ========== frontispicio ========== */
+
+.frontispiece {
+  text-align: center;
+  padding: 32px 0 64px;
+}
+
+.partLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(72px, 12vw, 128px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.titleDot {
+  color: var(--bondi-blue);
+  margin-left: 0.04em;
+}
+
+.subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 540px;
+  margin: 0 auto 48px;
+}
+
+.epigraph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px 0;
+  border-top: 1px solid var(--paper-deep);
+  border-bottom: 1px solid var(--paper-deep);
+}
+
+.epigraph cite {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 12px;
+  font-family: var(--font-body);
+}
+
+/* ========== ornamentos / section breaks ========== */
+
+.ornament {
+  text-align: center;
+  font-family: var(--font-display);
+  color: var(--ink-faint);
+  font-size: 24px;
+  letter-spacing: 1.2em;
+  margin: 64px 0;
+  padding-left: 1.2em; /* compensar el letter-spacing del último carácter */
+  user-select: none;
+}
+
+/* ========== capítulos ========== */
+
+.chapter {
+  margin: 24px 0;
+}
+
+.chapterHead {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.chapterNumber {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.chapterTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.chapterSubtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+/* ========== body editorial ========== */
+
+.prose {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--ink);
+  text-align: justify;
+  hyphens: auto;
+}
+
+.prose p {
+  margin-bottom: 1.2em;
+}
+
+.prose p + p {
+  text-indent: 1.6em;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose .accent {
+  color: var(--bondi-blue);
+  font-style: italic;
+}
+
+/* drop cap del primer párrafo del capítulo */
+.prose .opening::first-letter {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 5.2em;
+  line-height: 0.86;
+  float: left;
+  padding: 0.06em 0.1em 0 0;
+  color: var(--bondi-blue);
+}
+
+/* ========== las cuatro caras del cuerpo ========== */
+
+.faces {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-top: 16px;
+}
+
+.face {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 540px) {
+  .face {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
   }
+}
+
+.faceNumber {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-style: italic;
+  color: var(--ink-faint);
+  line-height: 1;
+  padding-top: 4px;
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+
+.faceBody h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.faceBody .role {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.faceBody p {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+/* ========== colofón ========== */
+
+.colophon {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--paper-deep);
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-faint);
+  line-height: 1.7;
+}
+
+.colophon .imprint {
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 16px;
+  color: var(--ink-faint);
 }
