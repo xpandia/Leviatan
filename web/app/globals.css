@@ -22,6 +22,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--paper);
@@ -35,6 +39,12 @@ body {
   font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
 }
 
+body {
+  /* el libro toma fixed; aseguramos que el body no haga scroll independiente */
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 ::selection {
   background: var(--ink);
   color: var(--paper);
@@ -45,7 +55,27 @@ a {
   text-decoration: none;
 }
 
+/* focus accesible y sutil */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--bondi-blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* respeto a reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {

@@ -1,35 +1,43 @@
-import { Chapter } from "./components/Chapter";
-import { PageSoundToggle } from "./components/PageSoundToggle";
+import { Book } from "./components/Book";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <article className={styles.book}>
-      <header className={styles.folio}>
-        <span className={styles.folioLeft}>Leviatán · MMXXVI</span>
-        <PageSoundToggle />
-      </header>
+    <Book>
+      {/* ============ Página 1 — Frontispicio ============ */}
+      <div className={styles.leaf}>
+        <header className={styles.folio}>
+          <span className={styles.folioLeft}>Leviatán · MMXXVI</span>
+          <span className={styles.folioRight}>xpandia · Cali</span>
+        </header>
 
-      {/* ============ Frontispicio ============ */}
-      <section className={styles.frontispiece} aria-labelledby="title">
-        <p className={styles.partLabel}>Frontispicio</p>
-        <h1 id="title" className={styles.title}>
-          Leviatán<span className={styles.titleDot}>.</span>
-        </h1>
-        <p className={styles.subtitle}>
-          o la materia, forma y poder de un cuerpo institucional universitario.
+        <section className={styles.frontispiece} aria-labelledby="title">
+          <p className={styles.partLabel}>Frontispicio</p>
+          <h1 id="title" className={styles.title}>
+            Leviatán<span className={styles.titleDot}>.</span>
+          </h1>
+          <p className={styles.subtitle}>
+            o la materia, forma y poder de un cuerpo institucional universitario.
+          </p>
+          <blockquote className={styles.epigraph}>
+            “Non est potestas Super Terram quae Comparetur ei.”
+            <cite>Job 41 · 24 — Frontispicio del Leviatán, 1651</cite>
+          </blockquote>
+        </section>
+
+        <p className={styles.hint} aria-hidden="true">
+          Avanza con la rueda, las flechas o un gesto. <span className={styles.hintArrow}>↓</span>
         </p>
-        <blockquote className={styles.epigraph}>
-          “Non est potestas Super Terram quae Comparetur ei.”
-          <cite>Job 41 · 24 — Frontispicio del Leviatán, 1651</cite>
-        </blockquote>
-      </section>
+      </div>
 
-      <div className={styles.ornament} aria-hidden="true">⁂</div>
+      {/* ============ Página 2 — Capítulo I ============ */}
+      <div className={styles.leaf}>
+        <header className={styles.folio}>
+          <span className={styles.folioLeft}>Capítulo I · El Pacto</span>
+          <span className={styles.folioRight}>Leviatán</span>
+        </header>
 
-      {/* ============ Capítulo I — El Pacto ============ */}
-      <Chapter withSound={false}>
-        <section className={styles.chapter} aria-labelledby="cap1">
+        <section className={styles.chapterPage} aria-labelledby="cap1">
           <header className={styles.chapterHead}>
             <span className={styles.chapterNumber}>Capítulo I</span>
             <h2 id="cap1" className={styles.chapterTitle}>El Pacto</h2>
@@ -54,13 +62,16 @@ export default function Home() {
             </p>
           </div>
         </section>
-      </Chapter>
+      </div>
 
-      <div className={styles.ornament} aria-hidden="true">⁂</div>
+      {/* ============ Página 3 — Capítulo II ============ */}
+      <div className={styles.leaf}>
+        <header className={styles.folio}>
+          <span className={styles.folioLeft}>Capítulo II · Las cuatro caras</span>
+          <span className={styles.folioRight}>Leviatán</span>
+        </header>
 
-      {/* ============ Capítulo II — Las cuatro caras del cuerpo ============ */}
-      <Chapter>
-        <section className={styles.chapter} aria-labelledby="cap2">
+        <section className={styles.chapterPage} aria-labelledby="cap2">
           <header className={styles.chapterHead}>
             <span className={styles.chapterNumber}>Capítulo II</span>
             <h2 id="cap2" className={styles.chapterTitle}>Las cuatro caras del cuerpo</h2>
@@ -125,13 +136,16 @@ export default function Home() {
             </article>
           </div>
         </section>
-      </Chapter>
+      </div>
 
-      <div className={styles.ornament} aria-hidden="true">⁂</div>
+      {/* ============ Página 4 — Capítulo III ============ */}
+      <div className={styles.leaf}>
+        <header className={styles.folio}>
+          <span className={styles.folioLeft}>Capítulo III · Las medidas</span>
+          <span className={styles.folioRight}>Leviatán</span>
+        </header>
 
-      {/* ============ Capítulo III — Las medidas del cuerpo ============ */}
-      <Chapter>
-        <section className={styles.chapter} aria-labelledby="cap3">
+        <section className={styles.chapterPage} aria-labelledby="cap3">
           <header className={styles.chapterHead}>
             <span className={styles.chapterNumber}>Capítulo III</span>
             <h2 id="cap3" className={styles.chapterTitle}>Las medidas del cuerpo</h2>
@@ -144,12 +158,7 @@ export default function Home() {
               igual que un pulso. Leviatán adopta las cinco dimensiones heredadas del <em>Trust Index</em>
               de Great Place to Work —<span className={styles.accent}>credibilidad, respeto, equidad,
               orgullo y camaradería</span>— y les añade las métricas duras que toda universidad ya
-              conoce. La diferencia es que las mira <em>juntas</em>. Una institución puede ser
-              número uno en Saber Pro y, al mismo tiempo, fallar en equidad. Antes, esas dos
-              verdades no se hablaban. Ahora sí.
-            </p>
-            <p>
-              Leviatán observa cinco pulsos, en orden y sin disociar.
+              conoce. La diferencia es que las mira <em>juntas</em>.
             </p>
           </div>
 
@@ -186,25 +195,23 @@ export default function Home() {
               <span className={styles.measureNumber}>V</span>
               <div>
                 <h4>Trayectoria post-grado</h4>
-                <p>empleo, sentido y salud reportada del egresado: el aprendizaje sobrevive al campus.</p>
+                <p>empleo, sentido y salud del egresado: el aprendizaje sobrevive al campus.</p>
               </div>
             </li>
           </ol>
 
-          <div className={styles.prose}>
-            <p className={styles.afterList}>
-              Ninguna métrica se mira sola. Esa es la primera regla de la observación de un cuerpo
-              vivo.
-            </p>
-          </div>
+          <p className={styles.afterList}>Ninguna métrica se mira sola.</p>
         </section>
-      </Chapter>
+      </div>
 
-      <div className={styles.ornament} aria-hidden="true">⁂</div>
+      {/* ============ Página 5 — Capítulo IV ============ */}
+      <div className={styles.leaf}>
+        <header className={styles.folio}>
+          <span className={styles.folioLeft}>Capítulo IV · Las líneas rojas</span>
+          <span className={styles.folioRight}>Leviatán</span>
+        </header>
 
-      {/* ============ Capítulo IV — Las líneas rojas ============ */}
-      <Chapter>
-        <section className={styles.chapter} aria-labelledby="cap4">
+        <section className={styles.chapterPage} aria-labelledby="cap4">
           <header className={styles.chapterHead}>
             <span className={styles.chapterNumber}>Capítulo IV</span>
             <h2 id="cap4" className={styles.chapterTitle}>Las líneas rojas</h2>
@@ -217,62 +224,56 @@ export default function Home() {
               tenía de autoritario. Locke aportó la <em>revocabilidad</em> del pacto, Rousseau la
               <em> participación</em> de la voluntad común, Rawls la <em>justicia</em> para los menos
               aventajados. Esa corrección está incrustada en el código de Leviatán como límites que
-              no se cruzan. No son <span className={styles.accent}>features</span> pendientes: son
-              negaciones permanentes.
+              no se cruzan.
             </p>
           </div>
 
           <ul className={styles.redlines}>
             <li>
-              <h4>Leviatán no diagnostica salud mental.</h4>
-              <p>
-                Detecta señales, conecta con humanos preparados, acompaña hasta que la persona habla
-                con alguien. La clínica pertenece a quien está formado para sostenerla.
-              </p>
+              <h4>No diagnostica salud mental.</h4>
+              <p>Detecta señales, conecta con humanos preparados, acompaña hasta que la persona habla con alguien.</p>
             </li>
             <li>
-              <h4>Leviatán no reemplaza al docente.</h4>
-              <p>
-                Le devuelve tiempo y le amplifica la voz. La calificación final, la mirada al
-                estudiante y la decisión pedagógica son y serán siempre humanas.
-              </p>
+              <h4>No reemplaza al docente.</h4>
+              <p>Le devuelve tiempo y le amplifica la voz. La calificación y la mirada son humanas.</p>
             </li>
             <li>
-              <h4>Leviatán no vigila.</h4>
-              <p>
-                La transparencia es bidireccional: si la institución observa al miembro, el miembro
-                también observa lo que la institución sabe de él.
-              </p>
+              <h4>No vigila.</h4>
+              <p>La transparencia es bidireccional: si la institución observa, el miembro también ve qué se sabe de él.</p>
             </li>
             <li>
-              <h4>Leviatán no comparte.</h4>
-              <p>
-                Los datos del cuerpo no fluyen a la calificación, a la admisión, ni a la
-                empleabilidad. Esa pared es la primera regla del pacto y la última en caer.
-              </p>
+              <h4>No comparte.</h4>
+              <p>Los datos del cuerpo no fluyen a calificación, admisión ni empleabilidad. Esa pared es la primera regla del pacto.</p>
             </li>
             <li>
-              <h4>Leviatán no maquilla.</h4>
-              <p>
-                Si una práctica institucional daña al cuerpo, el sistema la nombra. El cuidado de
-                verdad confronta; no escenifica yoga ante jornadas de ochenta horas.
-              </p>
+              <h4>No maquilla.</h4>
+              <p>Si una práctica institucional daña, el sistema la nombra. El cuidado de verdad confronta; no escenifica.</p>
             </li>
           </ul>
         </section>
-      </Chapter>
+      </div>
 
-      <div className={styles.ornament} aria-hidden="true">⁂</div>
+      {/* ============ Página 6 — Colofón ============ */}
+      <div className={styles.leaf}>
+        <header className={styles.folio}>
+          <span className={styles.folioLeft}>Colofón</span>
+          <span className={styles.folioRight}>xpandia · MMXXVI</span>
+        </header>
 
-      {/* ============ Colofón ============ */}
-      <footer className={styles.colophon}>
-        Compuesto en EB Garamond &amp; Inter, sobre papel digital blanco.
-        <br />
-        Dirigido por la filosofía de Thomas Hobbes (1651) y la disciplina de Jonathan Ive.
-        <br />
-        Cali, Colombia · MMXXVI.
-        <div className={styles.imprint}>xpandia · v 0.3 · sandbox</div>
-      </footer>
-    </article>
+        <section className={styles.colophonPage} aria-labelledby="colophon">
+          <div className={styles.ornamentLarge} aria-hidden="true">⁂</div>
+          <h2 id="colophon" className={styles.colophonTitle}>Colofón</h2>
+          <p className={styles.colophonProse}>
+            Compuesto en EB Garamond e Inter, sobre papel digital blanco.
+            <br />
+            Dirigido por la filosofía de Thomas Hobbes <span className={styles.smallCaps}>MDCLI</span>
+            <br />
+            y la disciplina de Jonathan Ive.
+          </p>
+          <p className={styles.colophonImprint}>Cali, Colombia · MMXXVI</p>
+          <p className={styles.colophonVersion}>xpandia · v 0.4 · sandbox</p>
+        </section>
+      </div>
+    </Book>
   );
 }

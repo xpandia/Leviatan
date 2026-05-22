@@ -24,26 +24,38 @@ export const metadata: Metadata = {
     template: "%s · Leviatán",
   },
   description:
-    "Un cuerpo vivo que reconoce, acompaña y representa a cada miembro de la universidad.",
+    "La universidad como cuerpo vivo. Un sistema de IA agéntica que reconoce, acompaña y representa a cada uno de sus miembros.",
   openGraph: {
     title: "Leviatán",
     description:
-      "Un cuerpo vivo que reconoce, acompaña y representa a cada miembro de la universidad.",
+      "La universidad como cuerpo vivo. Un sistema de IA agéntica que reconoce, acompaña y representa a cada uno de sus miembros.",
     url: "https://leviatan.xpandia.co",
     siteName: "Leviatán",
     locale: "es_CO",
     type: "website",
+    images: [
+      {
+        url: "/og-leviatan.png",
+        width: 1200,
+        height: 675,
+        alt: "Frontispicio del Leviatán de Thomas Hobbes, 1651 — grabado de Abraham Bosse.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Leviatán",
     description:
-      "Un cuerpo vivo que reconoce, acompaña y representa a cada miembro de la universidad.",
+      "La universidad como cuerpo vivo. Un sistema de IA agéntica que reconoce, acompaña y representa a cada uno de sus miembros.",
+    images: ["/og-leviatan.png"],
   },
 };
 
 export const viewport: Viewport = {
   themeColor: "#FFFFFF",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,39 +1,35 @@
 .toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: 1px solid var(--paper-deep);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
-  padding: 6px 12px;
-  font-family: var(--font-body);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  border: none;
+  background: transparent;
   color: var(--ink-faint);
   cursor: pointer;
-  transition: color 200ms var(--ease-apple), border-color 200ms var(--ease-apple);
+  margin-left: 4px;
+  transition: background 180ms var(--ease-apple), color 180ms var(--ease-apple);
 }
 
 .toggle:hover {
+  background: var(--paper-deep);
   color: var(--ink);
-  border-color: var(--ink-faint);
 }
 
-.toggle[aria-pressed="true"] {
-  color: var(--ink);
-  border-color: var(--bondi-blue);
+.toggle:focus-visible {
+  outline: 2px solid var(--bondi-blue);
+  outline-offset: 2px;
 }
 
-.label {
-  letter-spacing: 0.16em;
+.on {
+  color: var(--bondi-blue);
 }
 
 @media (max-width: 540px) {
-  .label {
-    display: none;
-  }
   .toggle {
-    padding: 6px 8px;
+    width: 36px;
+    height: 36px;
   }
 }
