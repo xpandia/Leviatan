@@ -18,9 +18,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Leviatán",
+  metadataBase: new URL("https://leviatan.xpandia.co"),
+  title: {
+    default: "Leviatán",
+    template: "%s · Leviatán",
+  },
   description:
     "Un cuerpo vivo que reconoce, acompaña y representa a cada miembro de la universidad.",
+  openGraph: {
+    title: "Leviatán",
+    description:
+      "Un cuerpo vivo que reconoce, acompaña y representa a cada miembro de la universidad.",
+    url: "https://leviatan.xpandia.co",
+    siteName: "Leviatán",
+    locale: "es_CO",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leviatán",
+    description:
+      "Un cuerpo vivo que reconoce, acompaña y representa a cada miembro de la universidad.",
+  },
 };
 
 export const viewport: Viewport = {
