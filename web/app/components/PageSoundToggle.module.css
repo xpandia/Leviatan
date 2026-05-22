@@ -1,0 +1,39 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--paper-deep);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: color 200ms var(--ease-apple), border-color 200ms var(--ease-apple);
+}
+
+.toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink-faint);
+}
+
+.toggle[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--bondi-blue);
+}
+
+.label {
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 540px) {
+  .label {
+    display: none;
+  }
+  .toggle {
+    padding: 6px 8px;
+  }
+}

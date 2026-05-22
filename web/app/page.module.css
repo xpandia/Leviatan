@@ -4,14 +4,14 @@
   min-height: 100dvh;
   max-width: 720px;
   margin: 0 auto;
-  padding: 56px 48px 80px;
+  padding: 32px 48px 80px;
   display: flex;
   flex-direction: column;
 }
 
 @media (max-width: 640px) {
   .book {
-    padding: 40px 28px 56px;
+    padding: 24px 28px 56px;
   }
 }
 
@@ -20,7 +20,7 @@
 .folio {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding-bottom: 96px;
   font-family: var(--font-body);
   font-size: 12px;
@@ -29,12 +29,8 @@
   text-transform: uppercase;
 }
 
-.folio .imprint {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0;
-  text-transform: none;
+.folioLeft {
+  letter-spacing: 0.16em;
 }
 
 /* ========== frontispicio ========== */
@@ -112,7 +108,7 @@
   font-size: 24px;
   letter-spacing: 1.2em;
   margin: 64px 0;
-  padding-left: 1.2em; /* compensar el letter-spacing del último carácter */
+  padding-left: 1.2em;
   user-select: none;
 }
 
@@ -183,6 +179,14 @@
   font-style: italic;
 }
 
+.prose .afterList {
+  margin-top: 32px;
+  text-align: left;
+  text-indent: 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
 /* drop cap del primer párrafo del capítulo */
 .prose .opening::first-letter {
   font-family: var(--font-display);
@@ -194,7 +198,7 @@
   color: var(--bondi-blue);
 }
 
-/* ========== las cuatro caras del cuerpo ========== */
+/* ========== las cuatro caras del cuerpo (Capítulo II) ========== */
 
 .faces {
   display: flex;
@@ -252,6 +256,90 @@
   line-height: 1.6;
   color: var(--ink-soft);
   text-align: left;
+}
+
+/* ========== Capítulo III — las medidas (lista ordenada) ========== */
+
+.measures {
+  list-style: none;
+  margin: 32px 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.measures li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--paper-deep);
+}
+
+.measures li:last-child {
+  border-bottom: none;
+}
+
+.measureNumber {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--bondi-blue);
+  line-height: 1;
+  padding-top: 4px;
+  text-align: right;
+}
+
+.measures h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.measures p {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ========== Capítulo IV — líneas rojas ========== */
+
+.redlines {
+  list-style: none;
+  margin: 32px 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.redlines li {
+  padding: 20px 24px;
+  border-left: 2px solid var(--bondi-blue);
+  background: transparent;
+}
+
+.redlines h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.redlines p {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 
 /* ========== colofón ========== */

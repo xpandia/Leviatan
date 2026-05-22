@@ -1,12 +1,12 @@
 :root {
-  /* paleta Leviatán — libro Hobbes 1651 + Ive */
-  --paper: #f4eedf;          /* papel crema, tinta envejecida */
-  --paper-deep: #ebe3d0;     /* papel sombra, divisores */
-  --ink: #1a1a1a;            /* tinta negra cálida */
-  --ink-soft: #4a3f2f;       /* tinta secundaria (sepia) */
-  --ink-faint: #8a7e6a;      /* marginalia, captions */
-  --bondi-blue: #0095b6;     /* acento Aqua / agua del Leviatán */
-  --ink-blue: #1b3a5c;       /* azul tinta clásico, ornamentos */
+  /* paleta Leviatán — papel blanco, tinta clásica, acento Aqua */
+  --paper: #ffffff;
+  --paper-deep: #ececec;
+  --ink: #1d1d1f;
+  --ink-soft: #4a4a4d;
+  --ink-faint: #8b8b90;
+  --bondi-blue: #0095b6;
+  --ink-blue: #1b3a5c;
 
   /* tipografía via next/font */
   --font-display: var(--font-display, "EB Garamond", Georgia, serif);
@@ -33,14 +33,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
-}
-
-/* sutil textura de papel — gradient muy bajo */
-body {
-  background-image:
-    radial-gradient(ellipse 1200px 800px at 20% 10%, rgba(255, 255, 255, 0.4), transparent 60%),
-    radial-gradient(ellipse 1000px 700px at 80% 90%, rgba(180, 165, 130, 0.08), transparent 70%);
-  background-attachment: fixed;
 }
 
 ::selection {
