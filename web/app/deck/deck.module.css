@@ -1,0 +1,286 @@
+/* ============================================================
+   Deck — slides estilo Keynote sobre el motor del Book.
+   Cada .slide ocupa el viewport y centra una sola idea.
+   ============================================================ */
+
+.slide {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 56px 80px 96px;
+  position: relative;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    padding: 40px 40px 96px;
+  }
+}
+
+@media (max-width: 540px) {
+  .slide {
+    padding: 32px 24px 96px;
+  }
+}
+
+/* eyebrow superior (small caps) */
+.eyebrow {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+@media (max-width: 540px) {
+  .eyebrow {
+    top: 32px;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+}
+
+/* headline grande (Garamond display) */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 7.4vw, 92px);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  max-width: 18ch;
+}
+
+.headline em {
+  font-style: italic;
+}
+
+.headline .accent {
+  color: var(--bondi-blue);
+  font-style: normal;
+}
+
+.headlineItalic {
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 7.4vw, 92px);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+/* subtítulo de slide */
+.sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(18px, 2.4vw, 26px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 30ch;
+  margin-top: 8px;
+}
+
+/* dato grande (un número) */
+.figure {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(96px, 18vw, 240px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.figure .accent {
+  color: var(--bondi-blue);
+}
+
+.figureLabel {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 24px);
+  color: var(--ink-soft);
+  max-width: 30ch;
+}
+
+/* lista vertical de ítems (con o sin numeración) */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 28ch;
+  text-align: left;
+  font-family: var(--font-display);
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.listMarker {
+  font-style: italic;
+  color: var(--bondi-blue);
+  font-size: clamp(18px, 2.2vw, 24px);
+  text-align: right;
+}
+
+.listLabel {
+  font-style: normal;
+}
+
+.listLabel strong {
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.listLabel em {
+  font-style: italic;
+  color: var(--ink-soft);
+  display: block;
+  font-size: 0.78em;
+  margin-top: 2px;
+}
+
+/* pie sutil de slide */
+.foot {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(13px, 1.5vw, 16px);
+  color: var(--ink-faint);
+  max-width: 50ch;
+  margin-top: 8px;
+}
+
+/* slide con imagen full-bleed (Frontispicio Hobbes) */
+.slideImage {
+  padding: 0;
+  background: var(--ink);
+  color: var(--paper);
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.imageBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%) contrast(1.05);
+  opacity: 0.55;
+}
+
+.slideImage .imageOverlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  color: var(--paper);
+  text-align: center;
+  gap: 16px;
+}
+
+@media (max-width: 540px) {
+  .slideImage .imageOverlay { padding: 32px; }
+}
+
+.slideImage .headline,
+.slideImage .headlineItalic,
+.slideImage .sub,
+.slideImage .foot,
+.slideImage .eyebrow {
+  color: var(--paper);
+}
+
+.slideImage .eyebrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.slideImage .accent {
+  color: var(--bondi-blue);
+}
+
+/* wordmark slide (apertura) */
+.wordmarkSlide {
+  gap: 12px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(80px, 14vw, 180px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.wordmarkDot {
+  color: var(--bondi-blue);
+  margin-left: 0.04em;
+}
+
+.wordmarkSub {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 12px;
+}
+
+/* slide de cierre / firma */
+.signature {
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  line-height: 1.7;
+  max-width: 40ch;
+}
+
+.signature strong {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+/* ornament discreto entre líneas (asterism) */
+.ornament {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 1em;
+  padding-left: 1em;
+  color: var(--ink-faint);
+  margin: 16px 0;
+  user-select: none;
+}
